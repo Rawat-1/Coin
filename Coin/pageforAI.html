@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$FAMILY - The Realest Coin in the Cosmos</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Special Elite', cursive;
+            margin: 0;
+            padding: 0;
+            color: white;
+            overflow-x: hidden;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            background-color: black;
+        }
+
+        #about .section-title {
+            margin-top: 3em;
+        }
+
+        /* Cosmic Starfield Animation */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: fly linear infinite;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 180px 20px 40px;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 4em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffcc00;
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+            letter-spacing: 2px;
+            display: inline-block;
+        }
+
+        .tagline {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            color: #ffffff;
+            font-style: italic;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            max-width: 800px;
+        }
+
+        /* Base cursor (Dodge Charger) */
+        html {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="%23ffcc00" d="M8 16l2-6h12l2 6m-16 0h12m-12 0h-2l-1-4h18l-1 4h-2m-12 0v2m12-2v2"/></svg>') 16 16, auto;
+        }
+
+        /* Interactive elements - keep Dodge Charger but change color */
+        a,
+        button,
+        .cta-button,
+        .feature-item,
+        [onclick],
+        [href],
+        input,
+        textarea,
+        select,
+        label,
+        .video-container,
+        .family-photo {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="%23ff6600" d="M8 16l2-6h12l2 6m-16 0h12m-12 0h-2l-1-4h18l-1 4h-2m-12 0v2m12-2v2"/></svg>') 16 16, pointer !important;
+        }
+
+        /* Text selection - keep default I-beam */
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            cursor: text !important;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            flex-wrap: wrap;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 204, 0, 0.3);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            padding: 10px 15px;
+            border-radius: 50px;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px white;
+            color: #ffcc00;
+        }
+
+        section {
+            padding: 100px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .story {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.2em;
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .feature-item {
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 200px;
+            font-size: 1.1em;
+            letter-spacing: 0.5px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            text-shadow: 0 0 10px white;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6600, #ffcc00);
+            color: black;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            min-width: 200px;
+            letter-spacing: 1px;
+            font-family: 'Special Elite', cursive;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 102, 0, 0.6);
+        }
+
+        .cta-button.telegram {
+            background: linear-gradient(45deg, #0088cc, #9933ff);
+            color: white;
+        }
+
+        .cta-button.chart {
+            background: linear-gradient(45deg, #00cc66, #ffcc00);
+            color: black;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9em;
+            opacity: 0.8;
+            letter-spacing: 0.5px;
+        }
+
+        .highlight {
+            color: #ffcc00;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
+        }
+
+        .family-photo {
+            max-width: 400px;
+            margin: 30px auto;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .family-photo:hover {
+            transform: scale(1.03);
+        }
+
+        .photo-caption {
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 0.9em;
+            opacity: 0.8;
+            text-align: center;
+        }
+
+        /* Tokenomics Styles */
+        .tokenomics-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pie-chart {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin: 0 auto;
+            background: conic-gradient(#ff6600 0% 50%,
+                    #9933ff 50% 70%,
+                    #ffcc00 70% 85%,
+                    #00cc66 85% 100%);
+            transition: all 0.5s ease;
+        }
+
+        .pie-chart:hover {
+            transform: rotate(360deg);
+        }
+
+        .allocation-list {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        .allocation-item {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .allocation-item:before {
+            content: "■";
+            position: absolute;
+            left: 0;
+            color: var(--color);
+            text-shadow: 0 0 10px var(--color);
+        }
+
+        .tax-structure {
+            max-width: 800px;
+            margin: 40px auto 0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .tax-item {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .tax-value {
+            font-size: 2em;
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        .roadmap-item {
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 200px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .section-title {
+            color: #ffcc00;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+        }
+
+        .bonus-banner {
+            text-align: center;
+            margin: 40px 0;
+            padding: 25px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .bonus-banner p {
+            margin: 0;
+            line-height: 1.6;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+        }
+
+        /* Nebula effect */
+        .nebula {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .nebula-1 {
+            background: radial-gradient(circle, #ff6600, transparent 70%);
+            top: 20%;
+            left: 10%;
+            animation: drift 30s linear infinite;
+        }
+
+        .nebula-2 {
+            background: radial-gradient(circle, #9933ff, transparent 70%);
+            bottom: 30%;
+            right: 15%;
+            animation: drift 40s linear infinite reverse;
+        }
+
+        .nebula-3 {
+            background: radial-gradient(circle, #00cc66, transparent 70%);
+            top: 40%;
+            left: 70%;
+            width: 400px;
+            height: 400px;
+            animation: drift 35s linear infinite alternate;
+        }
+
+        .nebula-4 {
+            background: radial-gradient(circle, #ffcc00, transparent 70%);
+            bottom: 20%;
+            left: 30%;
+            width: 350px;
+            height: 350px;
+            animation: drift 45s linear infinite reverse;
+            opacity: 0.2;
+        }
+
+        .nebula-5 {
+            background: radial-gradient(circle, #9933ff, transparent 70%);
+            top: 60%;
+            right: 40%;
+            width: 500px;
+            height: 500px;
+            animation: drift 50s linear infinite;
+            opacity: 0.25;
+        }
+
+        @keyframes drift {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(50px, 30px);
+            }
+
+            50% {
+                transform: translate(0, 60px);
+            }
+
+            75% {
+                transform: translate(-50px, 30px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Floating elements */
+        .floating {
+            position: absolute;
+            font-size: 30px;
+            animation: float 10s infinite linear;
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+            }
+        }
+
+        .buy-steps {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .step {
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step h3 {
+            color: #ffcc00;
+        }
+
+        /* Video Container Styles */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
+        }
+
+        .video-container::before {
+            content: "";
+            display: block;
+            padding-top: 56.25%;
+            /* 16:9 Aspect Ratio */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Cosmic Background Elements -->
+    <div class="stars" id="starsfield"></div>
+    <div class="nebula nebula-1"></div>
+    <div class="nebula nebula-2"></div>
+
+    <!-- Floating elements -->
+    <div class="floating" style="left: 10%; top: 20%;">🚀</div>
+    <div class="floating" style="left: 25%; top: 50%; animation-delay: 2s;">💎</div>
+    <div class="floating" style="left: 75%; top: 30%; animation-delay: 4s;">👨‍👩‍👧‍👦</div>
+    <div class="floating" style="left: 50%; top: 80%; animation-delay: 6s;">🔒</div>
+    <div class="floating" style="left: 85%; top: 60%; animation-delay: 8s;">🌕</div>
+
+    <div class="container">
+        <header id="home">
+            <div class="logo">$FAMILY</div>
+            <div class="tagline">"You don't trade coins... you ride with FAMILY"</div>
+
+            <nav>
+                <a href="#home">HOME</a>
+                <a href="#about">ABOUT</a>
+                <a href="#video">VIDEO</a>
+                <a href="#tokenomics">TOKENOMICS</a>
+                <a href="#buy">HOW TO BUY</a>
+                <a href="#community">COMMUNITY</a>
+            </nav>
+        </header>
+
+        <!-- In your HTML, find the about section and modify it like this: -->
+        <section id="about">
+            <h2 class="section-title">The Original Liquidity Providers</h2>
+            <div class="family-photo">
+                    <img src=dummy alt="Vin Diesel and Paul Walker" style="width:100%; border-radius:5px;">
+                <div class="photo-caption">The original $FAMILY - Universal Studios (circa 2001)</div>
+            </div>
+
+            <div class="story">
+                <p>Born in the cosmic garage where a group of degens mistook their crypto wallet passwords for
+                    intergalactic coordinates,
+                    <span class="highlight">$FAMILY</span> emerged as the only coin that truly understands what matters
+                    across all galaxies.
+                    Not financial advice, not moon missions (we're going to Andromeda), but <span
+                        class="highlight">FAMILY</span>.
+                </p>
+
+                <p>We exist to unite all degens across the universe who believe in one thing: <span
+                        class="highlight">FAMILY > profits</span>.</p>
+            </div>
+
+            <div class="features">
+                <div class="feature-item">✅ 2% buy tax</div>
+                <div class="feature-item">✅ 4% sell tax</div>
+                <div class="feature-item">✅ 100% community-driven</div>
+                <div class="feature-item">✅ Liquidity locked 🔒</div>
+                <div class="feature-item">✅ Vin Diesel probably approves</div>
+            </div>
+
+            <div class="cta-buttons">
+                <button class="cta-button">Buy on Uniswap</button>
+                <button class="cta-button telegram">Join Telegram</button>
+                <button class="cta-button chart">View Chart</button>
+            </div>
+        </section>
+
+        <!-- Video Section Now Above Tokenomics -->
+        <section id="video">
+            <h2 class="section-title">Captain Marvel Wh0? Vin Diesel Just Hit Light Speed in Reverse for FAMILY</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+                Witness the ultimate cosmic family reunion that even the Avengers couldn't handle
+            </p>
+            <div class="video-container">
+                <iframe width="560" height="315" data-src="Dom.mp4" title="Video player" frameborder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- New Video Section -->
+        <section>
+            <h2 class="section-title">The Infinity Saga needed 6 stones. Dom only needed 1 thing: FAMILY.</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+                When it comes to universal power, nothing beats the strength of family
+            </p>
+            <div class="video-container">
+                <iframe width="560" height="315" data-src="thor.mp4" title="Video player" frameborder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <script>
+            // Intersection Observer to load videos when scrolled to
+            document.addEventListener('DOMContentLoaded', function () {
+                const videoObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const iframe = entry.target;
+                            // Replace data-src with src to load the video
+                            iframe.src = iframe.dataset.src;
+                            // Add autoplay parameter if needed (remove this line if you don't want autoplay)
+                            iframe.src += (iframe.src.includes('?') ? '&' : '?') + 'autoplay=1';
+                            // Stop observing this iframe
+                            videoObserver.unobserve(iframe);
+                        }
+                    });
+                }, {
+                    threshold: 0.5, // Trigger when 50% of video is visible
+                    rootMargin: '200px' // Start loading when 200px away from viewport
+                });
+
+                // Observe all video iframes
+                document.querySelectorAll('.video-container iframe').forEach(iframe => {
+                    videoObserver.observe(iframe);
+                });
+            });
+        </script>
+
+        <section id="tokenomics">
+            <h2 class="section-title">COSMIC TOKENOMICS</h2>
+
+            <div class="tokenomics-grid">
+                <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <div class="pie-chart"></div>
+                    <p style="margin-top: 20px; font-style: italic;">Total Supply: 1,000,000,000 $FAMILY</p>
+                </div>
+
+                <div class="allocation-list">
+                    <div class="allocation-item" style="--color: #ff6600;">
+                        <strong>70% Liquidity</strong> - Locked for 6 months (multisig)
+                    </div>
+                    <div class="allocation-item" style="--color: #9933ff;">
+                        <strong>20% Marketing</strong> - Meme contests, CEX listings
+                    </div>
+                    <div class="allocation-item" style="--color: #00cc66;">
+                        <strong>10% Community Rewards</strong> - Active holders get $FAMILY airdrops
+                    </div>
+                </div>
+            </div>
+
+            <div class="tax-structure">
+                <h3 style="color: #ffcc00; text-align: center;">INTERGALACTIC TAX STRUCTURE</h3>
+                <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px;">
+                    <div class="tax-item">
+                        <div class="tax-value" style="color: #00cc66;">2%</div>
+                        <div>Buy Tax</div>
+                    </div>
+                    <div class="tax-item">
+                        <div class="tax-value" style="color: #ff6600;">4%</div>
+                        <div>Sell Tax</div>
+                    </div>
+                    <div class="tax-item">
+                        <div class="tax-value" style="color: #9933ff;">2%</div>
+                        <div>Transfer Tax</div>
+                    </div>
+                </div>
+                <p style="text-align: center; font-style: italic; margin-top: 20px; padding: 10px 0;">
+                    Taxes fund our cosmic marketing and liquidity.<br>
+                    <span style="display: inline-block; padding-top: 15px;">They will be reduced post launch
+                        accordingly. <br><br> <b>Creator holds only 5% of tokens.</b></span>
+                </p>
+            </div>
+
+            <div class="bonus-banner">
+                <p style="font-size: 1.5em; margin-bottom: 20px;">💥 FAIR LAUNCH — No Presale. No Team Allocation. No
+                    BS.</p>
+                <p style="font-size: 1.2em;">Just $FAMILY and fast cars.</p>
+            </div>
+        </section>
+
+        <section id="buy">
+            <h2 class="section-title">HOW TO BUY $FAMILY</h2>
+            <div class="buy-steps">
+                <div class="step" id="step1">
+                    <h3>Step 1: Get ETH</h3>
+                    <p>Buy Ethereum (ETH) on any major exchange like Coinbase or Binance.</p>
+                </div>
+                <div class="step" id="step2">
+                    <h3>Step 2: Send to Wallet</h3>
+                    <p>Transfer your ETH to a Web3 wallet (MetaMask, Trust Wallet, etc.).</p>
+                </div>
+                <div class="step" id="step3">
+                    <h3>Step 3: Connect to Uniswap</h3>
+                    <p>Go to Uniswap and connect your wallet. Use our official contract address:</p>
+                    <div
+                        style="background-color: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; margin-top: 10px; word-break: break-all; font-family: monospace;">
+                        0x1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b
+                    </div>
+                    <p style="font-size: 0.8em; margin-top: 5px; color: #ffcc00;">Always verify the contract address!
+                    </p>
+                </div>
+                <div class="step" id="step4">
+                    <h3>Step 4: Swap ETH for $FAMILY</h3>
+                    <p>Set slippage to 5% and confirm the transaction.</p>
+                </div>
+            </div>
+            <div class="cta-buttons">
+                <button class="cta-button">Buy on Uniswap</button>
+                <button class="cta-button telegram">Join Telegram</button>
+            </div>
+        </section>
+
+        <section id="community">
+            <h2 class="section-title">JOIN THE FAMILY</h2>
+            <div class="story">
+                <p>Our community is the heart of $FAMILY. Join us across the galaxy:</p>
+            </div>
+            <div class="features" style="justify-content: center;">
+                <div class="feature-item" style="min-width: 300px;">
+                    <h3>Telegram</h3>
+                    <p>Real-time chat with the $FAMILY</p>
+                </div>
+                <div class="feature-item" style="min-width: 300px;">
+                    <h3>Twitter</h3>
+                    <p>Latest updates and memes</p>
+                </div>
+                <div class="feature-item" style="min-width: 300px;">
+                    <h3>Discord</h3>
+                    <p>Community events and games</p>
+                </div>
+            </div>
+            <div class="cta-buttons">
+                <button class="cta-button telegram">Join Telegram</button>
+                <button class="cta-button">Follow on Twitter</button>
+                <button class="cta-button">Join Discord</button>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 $FAMILY Coin. All rights reserved. This is not financial advice (but it is family advice).
+            </p>
+            <p style="margin-top: 15px;">"We don't have friends. We have family." - Dominic Toretto (probably)</p>
+            <p style="margin-top: 15px; font-size: 0.8em; opacity: 0.6;">$FAMILY is a meme token with no intrinsic
+                value. Ride at your own risk.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Updated starfield creation with more stars
+        const starsContainer = document.getElementById('starsfield');
+        const starCount = 400; // Increased from 150 to 300
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+
+            // Random size between 1-4px (increased max size)
+            const size = Math.random() * 3 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+
+            // Random position
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+
+            // Random animation duration (2-10s)
+            const duration = Math.random() * 8 + 2;
+            star.style.animationDuration = `${duration}s`;
+
+            // Random delay
+            star.style.animationDelay = `${Math.random() * 10}s`;
+
+            // Random opacity variation
+            star.style.opacity = Math.random() * 0.7 + 0.3;
+
+            starsContainer.appendChild(star);
+        }
+
+        // Animate steps on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.step').forEach(step => {
+            observer.observe(step);
+        });
+    </script>
+</body>
+
+</html>
