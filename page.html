@@ -26,6 +26,27 @@
             margin-top: 3em;
         }
 
+        .youtube-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-family: 'Special Elite', cursive;
+            text-decoration: none;
+            color: #000;
+            background: #ffcc00;
+            border-radius: 50px;
+            box-shadow: 0 0 15px #ffcc00, 0 0 30px #ffcc00a0;
+            transition: all 0.3s ease;
+        }
+
+        .youtube-link:hover {
+            background: #ffaa00;
+            color: #000;
+            box-shadow: 0 0 25px #ffaa00, 0 0 40px #ffaa00a0;
+            transform: scale(1.05);
+        }
+
         /* Cosmic Starfield Animation */
         .stars {
             position: fixed;
@@ -287,17 +308,27 @@
             margin: 0 auto;
         }
 
+
         .pie-chart {
             width: 250px;
             height: 250px;
             border-radius: 50%;
             margin: 0 auto;
-            background: conic-gradient(#ff6600 0% 50%,
-                    #9933ff 50% 70%,
-                    #ffcc00 70% 85%,
-                    #00cc66 85% 100%);
+            background: conic-gradient(#ff6600 0% 70%,
+                    /* Liquidity - 70% */
+                    #9933ff 70% 90%,
+                    /* Marketing - 20% */
+                    #00cc66 90% 100%
+                    /* Community - 10% */
+                );
             transition: all 0.5s ease;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
         }
+
+        .pie-chart:hover {
+            transform: rotate(360deg) scale(1.05);
+        }
+
 
         .pie-chart:hover {
             transform: rotate(360deg);
@@ -359,8 +390,15 @@
 
         .bonus-banner {
             text-align: center;
-            margin: 30px 0;
-            padding: 15px;
+            margin: 40px 0;
+            padding: 25px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .bonus-banner p {
+            margin: 0;
+            line-height: 1.6;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
         }
 
         /* Nebula effect */
@@ -564,7 +602,7 @@
                 <div class="feature-item">✅ 4% sell tax</div>
                 <div class="feature-item">✅ 100% community-driven</div>
                 <div class="feature-item">✅ Liquidity locked 🔒</div>
-                <div class="feature-item">✅ Vin Diesel probably approves</div>
+                <div class="feature-item">✅ Dominic Toretto probably approves</div>
             </div>
 
             <div class="cta-buttons">
@@ -576,7 +614,7 @@
 
         <!-- Video Section Now Above Tokenomics -->
         <section id="video">
-            <h2 class="section-title">Captain Marvel Wh0? Vin Diesel Just Hit Light Speed in Reverse for FAMILY</h2>
+            <h2 class="section-title">Captain Marvel Wh0? Dom Just Hit Light Speed for ThE FAM</h2>
             <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
                 Witness the ultimate cosmic family reunion that even the Avengers couldn't handle
             </p>
@@ -585,11 +623,14 @@
                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
+            <a href="https://www.youtube.com/watch?v=zxeP6oLUQGI" target="_blank" class="youtube-link">
+                ▶️ Watch on YouTube
+            </a>
         </section>
 
         <!-- New Video Section -->
         <section>
-            <h2 class="section-title">The Infinity Saga needed 6 stones. Dom only needed 1 thing: FAMILY.</h2>
+            <h2 class="section-title">Thanos forgot one thing… you don’t swing at FAMILY.</h2>
             <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
                 When it comes to universal power, nothing beats the strength of family
             </p>
@@ -598,6 +639,9 @@
                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
+            <a href="https://youtu.be/sb41fcvBW8U" target="_blank" class="youtube-link">
+                ▶️ Watch on YouTube
+            </a>
         </section>
 
         <script>
@@ -638,19 +682,13 @@
 
                 <div class="allocation-list">
                     <div class="allocation-item" style="--color: #ff6600;">
-                        <strong>50% Presale</strong> - Fair launch, no VC whales
+                        <strong>70% Liquidity</strong> - Locked for 6 months (multisig)
                     </div>
                     <div class="allocation-item" style="--color: #9933ff;">
-                        <strong>20% Liquidity</strong> - Locked for 6 months (multisig)
-                    </div>
-                    <div class="allocation-item" style="--color: #ffcc00;">
-                        <strong>15% Marketing</strong> - Meme contests, CEX listings
+                        <strong>20% Marketing</strong> - Meme contests, CEX listings
                     </div>
                     <div class="allocation-item" style="--color: #00cc66;">
-                        <strong>10% Team</strong> - Vested over 6 months
-                    </div>
-                    <div class="allocation-item" style="--color: white;">
-                        <strong>5% Community Rewards</strong> - Active holders get $FAMILY airdrops
+                        <strong>10% Community Rewards</strong> - Active holders get $FAMILY airdrops
                     </div>
                 </div>
             </div>
@@ -679,10 +717,9 @@
             </div>
 
             <div class="bonus-banner">
-                <p>🚀 <strong>First 1000 cosmic travelers get 5% extra $FAMILY</strong> 🚀</p>
-                <button class="cta-button" style="margin-top: 15px;">
-                    JOIN PRESALE NOW
-                </button>
+                <p style="font-size: 1.5em; margin-bottom: 20px;">💥 FAIR LAUNCH — No Presale. No Team Allocation. No
+                    BS.</p>
+                <p style="font-size: 1.2em;">Just $FAMILY and fast cars.</p>
             </div>
         </section>
 
@@ -745,7 +782,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2023 $FAMILY Coin. All rights reserved. This is not financial advice (but it is family advice).
+            <p>&copy; 2025 $FAMILY Coin. All rights reserved. This is not financial advice (but it is family advice).
             </p>
             <p style="margin-top: 15px;">"We don't have friends. We have family." - Dominic Toretto (probably)</p>
             <p style="margin-top: 15px; font-size: 0.8em; opacity: 0.6;">$FAMILY is a meme token with no intrinsic
